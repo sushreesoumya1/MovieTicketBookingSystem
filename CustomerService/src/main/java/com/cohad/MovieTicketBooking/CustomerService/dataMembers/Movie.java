@@ -1,17 +1,15 @@
-package com.cohad.MovieTicketBooking.MovieSearchService.entity;
+package com.cohad.MovieTicketBooking.CustomerService.dataMembers;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
 
-@Entity
+@Component
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Movie {
-	@Id
 	Long id;
 	String name;
 	String city;

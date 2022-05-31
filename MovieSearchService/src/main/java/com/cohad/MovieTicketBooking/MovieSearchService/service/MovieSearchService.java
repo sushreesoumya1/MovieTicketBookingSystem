@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.cohad.MovieTicketBooking.MovieSearchService.entity.Movie;
 import com.cohad.MovieTicketBooking.MovieSearchService.exception.MovieSearchException;
 import com.cohad.MovieTicketBooking.MovieSearchService.repository.MovieSearchRepository;
 
-@Service
+@Component
 public class MovieSearchService {
 	@Autowired
 	MovieSearchRepository movieSearchRepo;

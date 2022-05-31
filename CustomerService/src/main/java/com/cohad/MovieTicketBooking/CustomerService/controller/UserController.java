@@ -1,12 +1,18 @@
 package com.cohad.MovieTicketBooking.CustomerService.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.cohad.MovieTicketBooking.CustomerService.dataMembers.Movie;
 
 @RestController
 public class UserController {
@@ -28,9 +34,18 @@ public class UserController {
 	}
 	
 	@GetMapping("/searchMovies/city/{city}")
-	public ResponseEntity<String> searchMoviebyCity(){
-		return ResponseEntity.ok("B");
+	public ResponseEntity<Object> searchMoviebyCity(@PathVariable String city){
+		HashMap<String,String> map=new HashMap<String, String>();
+		map.put("city",city);
+		ResponseEntity<Object> responseEntity = 
+				new RestTemplate().getForEntity("http://localhost:8081/searchMovies/city/{city}", Object.class,map);
+		Object object = responseEntity.getBody();
+		System.out.println(object.toString());
+
+		return ResponseEntity.ok(object);
 	}
+	
+	
 	@GetMapping("/searchMovies/lang/{lang}")
 	public ResponseEntity<String> searchMoviebyLang(){
 		return ResponseEntity.ok("C");
