@@ -1,7 +1,6 @@
 package com.cohad.MovieTicketBooking.CustomerService.controller;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -16,6 +15,8 @@ import com.cohad.MovieTicketBooking.CustomerService.dataMembers.Movie;
 
 @RestController
 public class UserController {
+	@Autowired
+	MovieSearchProxy proxy;
 	
 	@GetMapping("/searchMovies")
 	public ResponseEntity<List<String>> searchMovies(){
@@ -28,18 +29,30 @@ public class UserController {
 		return ResponseEntity.ok(list);
 	}
 	
-	@GetMapping("/searchMovies/name/{name}")
-	public ResponseEntity<String> searchMoviebyName(@PathVariable String name){
-		return ResponseEntity.ok(name);
-	}
 	
-	@GetMapping("/searchMovies/city/{city}")
-	public ResponseEntity<Object> searchMoviebyCity(@PathVariable String city){
+	@GetMapping("/searchMovies/{type}/{city}")
+	public ResponseEntity<Object> searchMoviebyCity(
+			@PathVariable String type,
+			@PathVariable String city
+			){
 		HashMap<String,String> map=new HashMap<String, String>();
 		map.put("city",city);
+		map.put("type",type);
 		ResponseEntity<Object> responseEntity = 
-				new RestTemplate().getForEntity("http://localhost:8081/searchMovies/city/{city}", Object.class,map);
+				new RestTemplate().getForEntity("http://localhost:8081/searchMovies/{type}/{city}", Object.class,map);
 		Object object = responseEntity.getBody();
+		System.out.println(object.toString());
+
+		return ResponseEntity.ok(object);
+	}
+	
+	@GetMapping("/searchMovies-feign/{type}/{city}")
+	public ResponseEntity<Object> searchMoviebyCity1(
+			@PathVariable String type,
+			@PathVariable String city
+			){
+		
+		Object object = proxy.getMovieByType(type, city);
 		System.out.println(object.toString());
 
 		return ResponseEntity.ok(object);
