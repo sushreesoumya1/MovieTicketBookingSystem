@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.cohad.MovieTicketBooking.CustomerService.dataMembers.Movie;
 
 
-@FeignClient(name="MovieSearchService", url="localhost:8081")
+@FeignClient(name="MovieSearchService")
 public interface MovieSearchProxy {
 	
 	@GetMapping("/searchMovies/{type}/{value}")
