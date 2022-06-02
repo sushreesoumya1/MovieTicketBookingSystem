@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.cohad.MovieTicketBooking</groupId>
 	<artifactId>eureka-server</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>eureka-server</name>
 	<description>Eureka Server</description>
 	<properties>
@@ -59,6 +59,14 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<image>
+						<name>
+							sushree20/movie-ticket-booking-system-${project.artifactId}:${aspectj.version}}
+						</name>
+						<pullPolicy>IF_NOT_PRESENT</pullPolicy>
+					</image>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

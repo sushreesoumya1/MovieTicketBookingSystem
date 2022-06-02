@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.cohad.MovieTicketBooking</groupId>
 	<artifactId>MovieSearchService</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>MovieSearchService</name>
 	<description>Movie Search Service</description>
 	<properties>
@@ -33,6 +33,14 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-sleuth</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-sleuth-zipkin</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -78,6 +86,12 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<image>
+						<name>
+							sushree20/movie-ticket-booking-system-${project.artifactId}:${aspectj.version}}
+						</name>
+						<pullPolicy>IF_NOT_PRESENT</pullPolicy>
+					</image>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>

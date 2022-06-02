@@ -1,0 +1,7 @@
+For Zipkin:
+	In windows poweshell, run the following
+	docker run -p 9411:9411 openzipkin/zipkin:2.23
+
+To create image for microservices:
+	Run as--> Build...
+	package= spring-boot:build-image -DskipTests
