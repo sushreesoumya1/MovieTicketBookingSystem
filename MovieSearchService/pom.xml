@@ -88,7 +88,7 @@
 				<configuration>
 					<image>
 						<name>
-							sushree20/movie-ticket-booking-system:${project.name}/${project.version}
+							sushree20/movie-ticket-booking-system-${project.name}:${project.version}
 						</name>
 						<pullPolicy>IF_NOT_PRESENT</pullPolicy>
 					</image>
