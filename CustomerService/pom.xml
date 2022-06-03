@@ -11,7 +11,7 @@
 	<groupId>com.cohad.MovieTicketBooking</groupId>
 	<artifactId>CustomerService</artifactId>
 	<version>0.0.1</version>
-	<name>CustomerService</name>
+	<name>customer-service</name>
 	<description>Customer Service</description>
 	<properties>
 		<java.version>1.8</java.version>
@@ -87,7 +87,7 @@
 				<configuration>
 					<image>
 						<name>
-							sushree20/movie-ticket-booking-system-${project.artifactId}:${aspectj.version}}
+							sushree20/movie-ticket-booking-system:${project.name}/${project.version}
 						</name>
 						<pullPolicy>IF_NOT_PRESENT</pullPolicy>
 					</image>
