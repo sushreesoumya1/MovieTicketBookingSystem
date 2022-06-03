@@ -5,3 +5,9 @@ For Zipkin:
 To create image for microservices:
 	Run as--> Build...
 	package= spring-boot:build-image -DskipTests
+	
+To push the docker image to Docker Hub:
+	 docker push sushree20/movie-ticket-booking-system-eureka-server:0.0.1
+	 
+To run the image:
+	docker run -p 8761:8761 sushree20/movie-ticket-booking-system-eureka-server:0.0.1
